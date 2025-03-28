@@ -7,6 +7,9 @@ compile: rebar3
 shell: rebar3
 	$(REBAR) shell
 
+publish: rebar3
+	$(REBAR) hex publish
+
 # Download rebar3.mk if it doesn't exist
 rebar3.mk:
 	@while true; do \
