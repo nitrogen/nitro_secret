@@ -17,17 +17,16 @@ secrets_filename() ->
     end).
 
 default_secrets_file() ->
-    App = app_name(),
+    NodeName = node_name(),
     {ok, [[Home]]} = init:get_argument(home),
     NitrogenDir = ".nitrogen",
-    Filename = atom_to_list(App) ++ ".config",
+    Filename = atom_to_list(NodeName) ++ ".config",
     filename:join([Home, NitrogenDir, Filename]).
 
-app_name() ->
-    case application:get_application() of
-        {ok, App} -> App;
-        undefined -> nitro_secret
-    end.
+node_name() ->
+    Node1 = atom_to_list(node()),
+    Node2 = hd(string:split(Node1, "@")),
+    list_to_atom(Node2).
 
 get(Key) ->
     get(Key, undefined).
@@ -44,7 +43,7 @@ get_all_values() ->
                 Body;
             {error, enoent} ->
                 logger:warning(not_found_msg(), [File, File]),
-                erlang:exit({non_existant_file, File})
+                []
         end
     end,
     nitro_cache:get(?CACHE_NAME, ?TTL, secrets_content, LookupFun).
