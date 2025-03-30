@@ -41,7 +41,7 @@ And add `nitro_secret` to your application's `.app` or `.app.src` file in the
 Place your secrets in an Erlang config file (a file that can be loaded with
 [`file:consult/1`](https://www.erlang.org/doc/apps/kernel/file.html#consult/1)).
 
-Here is a [sample secrets file](https://github.com/nitrogen/nitro_secret/xxx/sample_secrets.config).
+Here is a [sample secrets file](https://github.com/nitrogen/nitro_secret/blob/master/priv/sample_secrets.config).
 
 ## Specify the location of the secrets file
 
@@ -56,12 +56,12 @@ release), add the following rule:
 ].
 ```
 
-Here is a sample [nitro_secret.config](https://github.com/nitrogen/nitro_secret/xxx/nitro_secret.config)
+Here is a sample [nitro_secret.config](https://github.com/nitrogen/nitro_secret/blob/master/priv/nitro_secret.config)
 
 Alternatively, you don't have to specify a `secrets_filename` if you want to
 save your secrets to the default location.
 
-The default location is: `$(HOME)/.nitrogen/SHORT_NODE_NAME.config`
+The default location is: `$(HOME)/.nitrogen/SHORT_NODE_NAME.secrets.config`
 
 `SHORT_NODE_NAME` is the portion of the return value of `node()` before the
 `@`. For example is your node name is named `my_app@127.0.0.1`, then

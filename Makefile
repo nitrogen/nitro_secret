@@ -7,6 +7,8 @@ compile: rebar3
 shell: rebar3
 	$(REBAR) shell
 
+run: shell
+
 publish: rebar3
 	$(REBAR) hex publish
 

@@ -20,7 +20,7 @@ default_secrets_file() ->
     NodeName = node_name(),
     {ok, [[Home]]} = init:get_argument(home),
     NitrogenDir = ".nitrogen",
-    Filename = atom_to_list(NodeName) ++ ".config",
+    Filename = atom_to_list(NodeName) ++ ".secrets.config",
     filename:join([Home, NitrogenDir, Filename]).
 
 node_name() ->
