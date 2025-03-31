@@ -74,7 +74,12 @@ With all this done, you can then lookup secrets with:
 - `nitro_secret:get(Key, Default)`.
 - `nitro_secret:get(Key)`. (a shortcut for `nitro_secret:get(Key, undefined)`).
 
+# TODO
+
+* Add encrypted file
+* Generalize interface to allow handling remote services
+
 ## Author
 
 Copyright 2025 Jesse Gumm
-Apache 2.0 Liccense
+Apache 2.0 License
